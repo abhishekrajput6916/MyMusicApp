@@ -1,12 +1,20 @@
-import { useState } from 'react'
-import Sidebar from './components/SideBar/Sidebar'
-
+import { useContext, useState } from 'react'
+import Sidebar from './components/Sidebar' 
+import Player from './components/Player'
+import { Router } from 'react-router-dom'
+import Display from './components/Display'
+import PlayerContextProvider, { PlayerContext } from './context/PlayerContext'
 function App() {
+  const {audioRef,track}=useContext(PlayerContext)
   return (
      <div className="h-screen bg-black">
       <div className="h-[90%] flex">
         <Sidebar/>
+        <Display/>
       </div>
+
+      <Player/>
+      <audio ref={audioRef} src={track.file} preload='auto'></audio>
      </div>
   )
 }
