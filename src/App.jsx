@@ -3,10 +3,10 @@ import Sidebar from './components/Sidebar'
 import Player from './components/Player'
 import { Router } from 'react-router-dom'
 import Display from './components/Display'
-import PlayerContextProvider, { PlayerContext } from './context/PlayerContext'
+import {usePlayer } from './context/PlayerContext'
 function App() {
-  const {audioRef,track}=useContext(PlayerContext)
-  return (
+  const {audioRef,track}=usePlayer()
+    return (
      <div className="h-screen bg-black">
       <div className="h-[90%] flex">
         <Sidebar/>
@@ -14,7 +14,7 @@ function App() {
       </div>
 
       <Player/>
-      <audio ref={audioRef} src={track.file} preload='auto'></audio>
+      <audio ref={audioRef} src={track?.file} preload='auto'></audio>
      </div>
   )
 }

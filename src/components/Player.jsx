@@ -1,11 +1,41 @@
-import React, { useContext } from 'react'
+import React, {useEffect } from 'react'
 import { assets, songsData } from '../assets/assets'
-import { PlayerContext } from '../context/PlayerContext'
+import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb';
+import { FaPause, FaPlay } from 'react-icons/fa';
+import { ImLoop } from 'react-icons/im';
+import axios from 'axios';
+import { usePlayer } from '../context/PlayerContext';
 
 const Player = () => {
-    const { seekBar, seekBg, play, pause, playStatus,time,previous,next,seekSong } = useContext(PlayerContext);
+    // const {  } = useContext(PlayerContext);
+    const { play, seekBar, seekBg, pause, playStatus, time, previous, next, seekSong,track } = usePlayer();
+    const getData = async () => {
+
+        const config = {
+            params: {
+                ids: '3IBcauSj5M2A6lTeffJzdv'
+            },
+            headers: {
+                'x-rapidapi-key': '0631463a27msh368d41241b3b3a3p1810c4jsn5fe74b25f7c5',
+                'x-rapidapi-host': 'spotify23.p.rapidapi.com'
+            }
+        };
+  
+        try {
+            const response = await axios.get("https://spotify23.p.rapidapi.com/albums/",config);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        console.log("Player loaded")
+        getData();
+    }, [])
+
     return (
-        <div className='h-[10%] bg-black justify-between flex items-center text-white px-4' >
+        <div className='h-[10%] bg-black justify-between flex gap-8 items-center text-white px-4' >
             <div className=' hidden lg:flex items-center gap-4'>
                 <img className='w-12' src={songsData[0].image} alt="" />
                 <div>
@@ -16,18 +46,18 @@ const Player = () => {
             <div className="flex flex-col items-center gap-1 mx-auto" >
                 <div className="flex gap-4">
                     <img className='w-4 cursor-pointer' src={assets.shuffle_icon} alt="" />
-                    <img onClick={()=>previous()} className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
-                    {!playStatus ? <img className='w-4 cursor-pointer' src={assets.play_icon} onClick={play} alt="" /> :
-                        <img className='w-4 cursor-pointer' src={assets.pause_icon} onClick={pause} alt="" />}
-                    <img onClick={()=>next()} className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
-                    <img className='w-4 cursor-pointer' src={assets.loop_icon} alt="" />
+                    <TbPlayerTrackPrevFilled onClick={previous} className={`w-4 cursor-pointer ${track?.id<=0?'text-neutral-500':''}`} />
+                    {!playStatus ? <FaPlay onClick={play} className='w-4 cursor-pointer' />
+                        : <FaPause className='w-4 cursor-pointer' onClick={pause} />}
+                    <TbPlayerTrackNextFilled onClick={next} className={`w-4 cursor-pointer ${track?.id>=songsData.length-1?'text-gray-500':''}`} />
+                    <ImLoop className='w-4 cursor-pointer' />
                 </div>
                 <div className="flex items-center gap-5">
                     <p>{time.currentTime.minute}:{time.currentTime.second}</p>
                     <div ref={seekBg} onClick={seekSong} className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer">
                         <hr ref={seekBar} className='h-1 border-none w-0 bg-green-800 rounded-full' />
                     </div>
-                    <p>{time.totalTime.minute}:{time.totalTime.second}</p>
+                    <p>{time.totalTime.minute || '00'}:{time.totalTime.second || '00'}</p>
                 </div>
             </div>
             <div className="hidden lg:flex items-center gap-2 opacity-75" >

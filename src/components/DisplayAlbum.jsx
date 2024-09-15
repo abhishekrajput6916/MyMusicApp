@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import { albumsData, assets, songsData } from '../assets/assets';
-import { PlayerContext } from '../context/PlayerContext';
+import { PlayerContext, usePlayer } from '../context/PlayerContext';
 
 const DisplayAlbum = () => {
     const { id } = useParams();
     const albumData = albumsData[id];
-    const {playWithId}=useContext(PlayerContext);
+    const {playWithId}=usePlayer();
 
     return (
         <>
@@ -20,7 +20,7 @@ const DisplayAlbum = () => {
                     <h4>Spotify</h4>
                     <p className='mt-1'>
                         <img src={assets.spotify_logo} alt="" className="inline-block w-5 mx-2" />
-                        <b>Spotify</b>
+                        <b>Spotify </b>
                         • 1,323, 154 likes
                         • <b>50 songs, </b>
                         about 2 hr 30 min
