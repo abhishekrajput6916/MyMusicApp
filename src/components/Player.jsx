@@ -37,10 +37,10 @@ const Player = () => {
     return (
         <div className='h-[10%] bg-black justify-between flex gap-8 items-center text-white px-4' >
             <div className=' hidden lg:flex items-center gap-4'>
-                <img className='w-12' src={songsData[0].image} alt="" />
+                <img className='w-12' src={songsData[track.id].image} alt="" />
                 <div>
-                    <p>{songsData[0].name}</p>
-                    <p>{songsData[0].desc}</p>
+                    <p>{songsData[track.id].name}</p>
+                    <p>{songsData[track.id].desc}</p>
                 </div>
             </div>
             <div className="flex flex-col items-center gap-1 mx-auto" >
