@@ -7,7 +7,7 @@ import {usePlayer } from './context/PlayerContext'
 function App() {
   const {audioRef,track}=usePlayer()
     return (
-     <div className="h-screen bg-black">
+     <div className="h-svh bg-black">
       <div className="h-[90%] flex">
         <Sidebar/>
         <Display/>
