@@ -39,17 +39,26 @@ import img13 from './img13.jpg'
 import img14 from './img14.jpg'
 import img15 from './img15.jpg'
 import img16 from './img16.jpg'
+import BhaktiBanner from './BhaktiBanner.jpeg'
+
 import song1 from  './song1.mp3'
 import song2 from  './song2.mp3'
 import song3 from  './song3.mp3'
-import BadmosChora from './BadmosChora.mp3'
-import BabamBam from './BabamBam.mp3'
-import CheckItOut from './CheckItOut.mp3'
-import Jaadugar from './Jaadugar.mp3'
-import NainaKiTalwar from './NainaKiTalwar.mp3'
-import Payal from './Payal.mp3'
-import RamRam from './RamRam.mp3'
-import _2Woofer from './_2Woofer.mp3'
+// Hustle Songs
+import BadmosChora from './HustleSongs/BadmosChora.mp3'
+import BabamBam from './HustleSongs/BabamBam.mp3'
+import CheckItOut from './HustleSongs/CheckItOut.mp3'
+import Jaadugar from './HustleSongs/Jaadugar.mp3'
+import NainaKiTalwar from './HustleSongs/NainaKiTalwar.mp3'
+import Payal from './HustleSongs/Payal.mp3'
+import RamRam from './HustleSongs/RamRam.mp3'
+import _2Woofer from './HustleSongs/_2Woofer.mp3'
+//Bhakti Songs
+import MereGharRamAayeHain from './BhaktiSongs/MereGharRamAayeHain.m4a';
+import SiyaRam from './BhaktiSongs/SiyaRam.m4a';
+import Damroo from './BhaktiSongs/Damroo.m4a';
+import JaiShriRam from './BhaktiSongs/JaiShriRam.m4a';
+
 
 export const assets = {
     bell_icon,
@@ -79,7 +88,49 @@ export const assets = {
 }
 
 
-export const songsData = [
+export const BhaktiSongs = [
+    {
+        id:0,
+        name: "Mere Ghar Ram Aaye Hain",    
+        image: img1,
+        file:MereGharRamAayeHain,
+        desc:"Put a smile on your face.",
+        duration:"3:00"
+    },
+    {
+        id:1,
+        name: "Siya Ram",
+        image: img2,
+        file:SiyaRam,
+        desc:"Put a smile on your face.",
+        duration:"2:20"
+    },
+    {
+        id:2,
+        name: "Dumroo",
+        image:img3,
+        file:Dumroo,
+        desc:"Put a smile on your face.",
+        duration:"2:32"
+    },
+    {
+        id:3,
+        name: "Jai Shri Ram",
+        image: img4,
+        file:JaiShriRam,
+        desc:"Put a smile on your face.",
+        duration:"2:50"
+    },
+    {
+        id:4,
+        name: "Babam Bam",
+        image: img5,
+        file:song1,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    }
+]
+export const HustleSongs = [
     {
         id:0,
         name: "Ram Ram",    
@@ -153,28 +204,29 @@ export const albumsData = [
         image: HustleBanner,
         desc:"Your weekly update of the most played tracks",
         bgColor:"#2a4365",
-        allSongs:songsData, 
+        allSongs:HustleSongs, 
     },
     {   
         id:1,
-        name: "Top 50 India",
-        image: img9,
+        name: "Top Bhakti Songs",
+        image: BhaktiBanner,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#22543d"
+        bgColor:"#22543d",
+        allSongs:BhaktiSongs, 
     },
     {   
         id:2,
-        name: "Trending India",
-        image: img10,
+        name: "Mega Hits,",
+        image: img11,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#742a2a"
+        bgColor:"#234e52"
     },
     {   
         id:3,
-        name: "Trending Global",
-        image: img16,
+        name: "Happy Favorites",
+        image: img15,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#44337a"
+        bgColor:"#744210"
     },
     {   
         id:4,
