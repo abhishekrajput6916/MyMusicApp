@@ -6,8 +6,12 @@ const PlayerContextProvider = ({ children }) => {
     const audioRef = useRef();
     const seekBg = useRef();
     const seekBar = useRef();
+    const [loop, setLoop] = useState(false);
+    const [shuffled, setShuffled] = useState(false);
 
-    const [track, setTrack] = useState(songsData[0]);
+    const [playlist, setPlaylist] = useState([...songsData]);
+
+    const [track, setTrack] = useState(playlist[0]);
     const [playStatus, setPlayStatus] = useState(false);
     const [time, setTime] = useState({
         currentTime: {
@@ -27,8 +31,34 @@ const PlayerContextProvider = ({ children }) => {
         audioRef.current.pause();
         setPlayStatus(false);
     }
+    const toggleLoop = () => {
+        setLoop(old => !old);
+    }
+
+    const shuffleSongs = async () => {
+        if (shuffled) {
+            await songsData.map((song,index)=>song.id=index);
+            await setPlaylist([...songsData]);
+            setShuffled(false);
+        } else {
+            let shuffledList = [...playlist];
+            for (let i = shuffledList.length - 1; i > 0; i--) {
+                const newId=i;
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledList[i].id, shuffledList[j].id] = [shuffledList[j].id, shuffledList[i].id];
+                [shuffledList[i], shuffledList[j]] = [shuffledList[j], shuffledList[i]];
+            }
+            await setPlaylist(shuffledList);
+            setShuffled(true);
+        }
+        playWithId(0);
+        console.log(songsData);
+    };
+
+
+
     const playWithId = async (id) => {
-        await setTrack(songsData[id]);
+        await setTrack(playlist[id]);
         await audioRef.current.play();
         setPlayStatus(true);
     }
@@ -36,30 +66,29 @@ const PlayerContextProvider = ({ children }) => {
     const previous = async (e) => {
         if (track.id > 0) {
             e.target.style.backgroundColor = "";
-            await setTrack(songsData[track?.id - 1]);
+            await setTrack(playlist[track?.id - 1]);
             await audioRef.current.play();
             setPlayStatus(true);
         }
     }
     const next = async (e) => {
-        if (track.id < songsData.length - 1) {
-            await setTrack(songsData[track?.id + 1]);
+        if (track.id < playlist.length - 1) {
+            await setTrack(playlist[track?.id + 1]);
             await audioRef.current.play();
             setPlayStatus(true);
         }
     }
 
     const seekSong = async (e) => {
-        console.log(e);
+        // console.log(e);
         audioRef.current.currentTime = ((e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration)
     }
 
     useEffect(() => {
         if (audioRef.current.currentTime === audioRef.current.duration) {
-            setPlayStatus(false);
+            loop ? next() : setPlayStatus(false);
         }
     })
-
 
     useEffect(() => {
         setTimeout(() => {
@@ -83,13 +112,16 @@ const PlayerContextProvider = ({ children }) => {
         audioRef,
         seekBg,
         seekBar,
+        playlist,
         track, setTrack,
         playStatus, setPlayStatus,
         time, setTime,
         play, pause,
         playWithId,
         previous, next,
-        seekSong
+        seekSong,
+        loop, toggleLoop,
+        shuffled, shuffleSongs
     }
     return (
         <PlayerContext.Provider value={contextValue}>

@@ -78,13 +78,82 @@ export const assets = {
     clock_icon
 }
 
+
+export const songsData = [
+    {
+        id:0,
+        name: "Ram Ram",    
+        image: img1,
+        file:RamRam,
+        desc:"Put a smile on your face.",
+        duration:"3:00"
+    },
+    {
+        id:1,
+        name: "Badmos Chora",
+        image: img2,
+        file:BadmosChora,
+        desc:"Put a smile on your face.",
+        duration:"2:20"
+    },
+    {
+        id:2,
+        name: "Payal",
+        image: img3,
+        file:Payal,
+        desc:"Put a smile on your face.",
+        duration:"2:32"
+    },
+    {
+        id:3,
+        name: "NainaKi Talwar",
+        image: img4,
+        file:NainaKiTalwar,
+        desc:"Put a smile on your face.",
+        duration:"2:50"
+    },
+    {
+        id:4,
+        name: "Babam Bam",
+        image: img5,
+        file:BabamBam,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    },
+    {
+        id:5,
+        name: "Jaadugar",
+        image: img14    ,
+        file:Jaadugar,
+        desc:"Put a smile on your face.",
+        duration:"2:45"
+    },
+    {
+        id:6,
+        name: "Check It Out",
+        image: img7,
+        file:CheckItOut,
+        desc:"Put a smile on your face.",
+        duration:"2:18"
+    },
+    {
+        id:7,
+        name: "2 Woofer",
+        image: img12,
+        file:_2Woofer,
+        desc:"Put a smile on your face.",
+        duration:"2:35"
+    }
+]
+
 export const albumsData = [
     {   
         id:0,
         name: "Top Hustle 2.0",
         image: HustleBanner,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#2a4365"
+        bgColor:"#2a4365",
+        allSongs:songsData, 
     },
     {   
         id:1,
@@ -120,72 +189,5 @@ export const albumsData = [
         image: img15,
         desc:"Your weekly update of the most played tracks",
         bgColor:"#744210"
-    }
-]
-
-export const songsData = [
-    {
-        id:0,
-        name: "Ram Ram",
-        image: img1,
-        file:RamRam,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"3:00"
-    },
-    {
-        id:1,
-        name: "Badmos Chora",
-        image: img2,
-        file:BadmosChora,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:20"
-    },
-    {
-        id:2,
-        name: "Payal",
-        image: img3,
-        file:Payal,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:32"
-    },
-    {
-        id:3,
-        name: "NainaKi Talwar",
-        image: img4,
-        file:NainaKiTalwar,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:50"
-    },
-    {
-        id:4,
-        name: "Babam Bam",
-        image: img5,
-        file:BabamBam,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"3:10"
-    },
-    {
-        id:5,
-        name: "Jaadugar",
-        image: img14    ,
-        file:Jaadugar,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:45"
-    },
-    {
-        id:6,
-        name: "Check It Out",
-        image: img7,
-        file:CheckItOut,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:18"
-    },
-    {
-        id:7,
-        name: "2 Woofer",
-        image: img12,
-        file:_2Woofer,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:35"
     }
 ]

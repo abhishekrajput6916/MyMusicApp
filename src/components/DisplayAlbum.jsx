@@ -35,13 +35,13 @@ const DisplayAlbum = () => {
             </div>
             <hr />
             {
-                songsData.map((item, index) => (
+                albumData.allSongs.map((item, index) => (
                     <div onClick={()=>playWithId(item.id)} key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
                         <p className="text-white">
                             <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
                             <img src={item.image} alt="" className="inline w-10 mr-5" />
                         </p>
-                        <p className='text-[15px]'>{albumData.name}</p>
+                        <p className='text-[15px]'>{item.name}</p>
                         <p className="hidden text-[15px] sm:block">5 days ago</p>
                         <p className="text-[15px] text-center">{item.duration}</p>
                     </div>
