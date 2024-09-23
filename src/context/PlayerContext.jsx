@@ -8,7 +8,7 @@ const PlayerContextProvider = ({ children }) => {
     const seekBar = useRef();
     const [loop, setLoop] = useState(false);
     const [shuffled, setShuffled] = useState(false);
-    const [currAlbum,setCurrAlbum]=useState([...albumsData[0]])
+    const [currAlbum,setCurrAlbum]=useState({...albumsData[0]})
     const [songsData,setSongsData]=useState([...currAlbum.allSongs])
     
     const [playlist, setPlaylist] = useState([...songsData]);
