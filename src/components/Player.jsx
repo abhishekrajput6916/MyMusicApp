@@ -43,7 +43,7 @@ const Player = () => {
 
     return (
         <div className='h-[10%] relative bg-black justify-between flex gap-8 items-center text-white px-4' >
-            <div ref={notifyRef} className={`absolute text-xs right-1/2 translate-x-1/2 bottom-20 rounded-full py-1 px-3 bg-black/80 text-white ${message?"visible":"invisible"}`}>{message}</div>
+            <div ref={notifyRef} className={`absolute text-xs w-40 text-center right-1/2 translate-x-1/2 bottom-20 xl:bottom-28 xl:text-base rounded-full py-1 px-3 bg-black/80 text-white ${message?"visible":"invisible"}`}>{message}</div>
             <div className=' hidden lg:flex items-center gap-4'>
                 <img className='w-12' src={playlist[track.id].image} alt="" />
                 <div>
