@@ -116,7 +116,7 @@ const PlayerContextProvider = ({ children }) => {
         audioRef,
         seekBg,
         seekBar,
-        playlist,
+        playlist,setPlaylist,
         track, setTrack,
         playStatus, setPlayStatus,
         time, setTime,
@@ -127,6 +127,7 @@ const PlayerContextProvider = ({ children }) => {
         loop, toggleLoop,
         shuffled, shuffleSongs,
         songsData,setSongsData,
+        currAlbum,changeAlbum
     }
     return (
         <PlayerContext.Provider value={contextValue}>

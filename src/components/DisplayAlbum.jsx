@@ -3,12 +3,18 @@ import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import { albumsData, assets } from '../assets/assets';
 import { PlayerContext, usePlayer } from '../context/PlayerContext';
+import { useEffect } from 'react';
 
 const DisplayAlbum = () => {
     const { id } = useParams();
     const albumData = albumsData[id];
-    const {playWithId}=usePlayer();
+    const {currAlbum,playWithId,setPlaylist}=usePlayer();
 
+    useEffect(()=>{
+        // console.log(currAlbum);
+        setPlaylist(currAlbum.allSongs);
+    },[])
+    
     return (
         <>
             <div className='mt-10 flex gap-8 flex-col md:flex-row md:items-end'>

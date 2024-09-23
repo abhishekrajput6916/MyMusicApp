@@ -54,10 +54,16 @@ import Payal from './HustleSongs/Payal.mp3'
 import RamRam from './HustleSongs/RamRam.mp3'
 import _2Woofer from './HustleSongs/_2Woofer.mp3'
 //Bhakti Songs
-import BhagwanMeriNaiya from './BhaktiSongs/BhagwanMeriNaiya.mp3';
-import HeDukhBhanjan from './BhaktiSongs/HeDukhBhanjan.mp3';
-import Karpuragauram from './BhaktiSongs/Karpuragauram.mp3';
-import RamStuti from './BhaktiSongs/RamStuti.mp3';
+import ShivShivShankara from './BhaktiSongs/ShivShivShankara.mp3';
+import ShivKailashoKeVasi from './BhaktiSongs/ShivKailashoKeVasi.mp3';
+import ShivSamaRahe from './BhaktiSongs/ShivSamaRahe.mp3';
+import KishoriKuchAisa from './BhaktiSongs/KishoriKuchAisa.mp3';
+import MeraAapkiKripaSe from './BhaktiSongs/MeraAapkiKripaSe.mp3';
+import ShreeKrishnaGovind from './BhaktiSongs/ShreeKrishnaGovind.mp3';
+import ParvatiBoliShankarSe from './BhaktiSongs/ParvatiBoliShankarSe.mp3';
+import ShivKaDas from './BhaktiSongs/ShivKaDas.mp3';
+import KeejoKesariKeLal from './BhaktiSongs/KeejoKesariKeLal.mp3';
+
 
 
 export const assets = {
@@ -91,50 +97,83 @@ export const assets = {
 export const BhaktiSongs = [
     {
         id:0,
-        name: "Bhagwan Meri Naiya",    
-        image: img1,
-        file:BhagwanMeriNaiya,
+        name: "Shiv Shiv Shankara",    
+        image: BhaktiBanner,
+        file:ShivShivShankara,
         desc:"Put a smile on your face.",
         duration:"3:00"
     },
     {
         id:1,
-        name: "He Dukh Bhanjan",
-        image: img2,
-        file:HeDukhBhanjan,
+        name: "Shiv Kailasho Ke Vasi",
+        image: BhaktiBanner,
+        file:ShivKailashoKeVasi,
         desc:"Put a smile on your face.",
         duration:"2:20"
     },
     {
         id:2,
-        name: "Ram Stuti",
-        image:img3,
-        file:RamStuti,
+        name: "Shiv Sama Rahe",
+        image: BhaktiBanner,
+        file:ShivSamaRahe,
         desc:"Put a smile on your face.",
         duration:"2:32"
     },
     {
         id:3,
-        name: "Karpuragauram",
-        image: img4,
-        file:Karpuragauram,
+        name: "Kishori Kuch Aisa Intezam Hojaye",
+        image: BhaktiBanner,
+        file:KishoriKuchAisa,
         desc:"Put a smile on your face.",
         duration:"2:50"
     },
     {
         id:4,
-        name: "Babam Bam",
-        image: img5,
-        file:song1,
+        name: "Mera Aapki Kripa Se",
+        image: BhaktiBanner,
+        file:MeraAapkiKripaSe,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    },
+    {
+        id:5,
+        name: "Shree Krishna Govind",
+        image: BhaktiBanner,
+        file:ShreeKrishnaGovind,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    },
+    {
+        id:6,
+        name: "Parvati Boli Shankar Se",
+        image: BhaktiBanner,
+        file:ParvatiBoliShankarSe,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    },
+    {
+        id:7,
+        name: "Shiv Ka Das",
+        image: BhaktiBanner,
+        file:ShivKaDas,
+        desc:"Put a smile on your face.",
+        duration:"3:10"
+    },
+    {
+        id:8,
+        name: "Keejo Kesari Ke Lal",
+        image: BhaktiBanner,
+        file:KeejoKesariKeLal,
         desc:"Put a smile on your face.",
         duration:"3:10"
     }
 ]
+
 export const HustleSongs = [
     {
         id:0,
         name: "Ram Ram",    
-        image: img1,
+        image: HustleBanner,
         file:RamRam,
         desc:"Put a smile on your face.",
         duration:"3:00"
@@ -142,7 +181,7 @@ export const HustleSongs = [
     {
         id:1,
         name: "Badmos Chora",
-        image: img2,
+        image: HustleBanner,
         file:BadmosChora,
         desc:"Put a smile on your face.",
         duration:"2:20"
@@ -150,7 +189,7 @@ export const HustleSongs = [
     {
         id:2,
         name: "Payal",
-        image: img3,
+        image: HustleBanner,
         file:Payal,
         desc:"Put a smile on your face.",
         duration:"2:32"
@@ -158,7 +197,7 @@ export const HustleSongs = [
     {
         id:3,
         name: "NainaKi Talwar",
-        image: img4,
+        image: HustleBanner,
         file:NainaKiTalwar,
         desc:"Put a smile on your face.",
         duration:"2:50"
@@ -166,7 +205,7 @@ export const HustleSongs = [
     {
         id:4,
         name: "Babam Bam",
-        image: img5,
+        image: HustleBanner,
         file:BabamBam,
         desc:"Put a smile on your face.",
         duration:"3:10"
@@ -174,7 +213,7 @@ export const HustleSongs = [
     {
         id:5,
         name: "Jaadugar",
-        image: img14    ,
+        image: HustleBanner    ,
         file:Jaadugar,
         desc:"Put a smile on your face.",
         duration:"2:45"
@@ -182,7 +221,7 @@ export const HustleSongs = [
     {
         id:6,
         name: "Check It Out",
-        image: img7,
+        image: HustleBanner,
         file:CheckItOut,
         desc:"Put a smile on your face.",
         duration:"2:18"
@@ -190,7 +229,7 @@ export const HustleSongs = [
     {
         id:7,
         name: "2 Woofer",
-        image: img12,
+        image: HustleBanner,
         file:_2Woofer,
         desc:"Put a smile on your face.",
         duration:"2:35"
