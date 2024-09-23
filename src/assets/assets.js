@@ -242,7 +242,7 @@ export const albumsData = [
         name: "Top Hustle 2.0",
         image: HustleBanner,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#2a4365",
+        bgColor:"#56165C",
         allSongs:HustleSongs, 
     },
     {   
@@ -250,7 +250,7 @@ export const albumsData = [
         name: "Top Bhakti Songs",
         image: BhaktiBanner,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#22543d",
+        bgColor:"#EC4007",
         allSongs:BhaktiSongs, 
     },
     {   

@@ -9,7 +9,7 @@ import { FaRegCircleStop, FaShuffle } from 'react-icons/fa6';
 
 const Player = () => {
     // const {  } = useContext(PlayerContext);
-    const { play, seekBar, seekBg, pause, playStatus, time, previous, next, seekSong, track, loop, toggleLoop, shuffleSongs, shuffled, playlist } = usePlayer();
+    const { play, seekBar, seekBg, pause, playStatus, time, previous, next, seekSong, track, loop, toggleLoop, shuffleSongs, shuffled, playlist,notifyRef,notify,message } = usePlayer();
     // const getData = async () => {
 
     //     const config = {
@@ -42,7 +42,8 @@ const Player = () => {
     }, [shuffled, loop, track, playlist])
 
     return (
-        <div className='h-[10%] bg-black justify-between flex gap-8 items-center text-white px-4' >
+        <div className='h-[10%] relative bg-black justify-between flex gap-8 items-center text-white px-4' >
+            <div ref={notifyRef} className={`absolute text-xs right-1/2 translate-x-1/2 bottom-20 rounded-full py-1 px-3 bg-black/80 text-white ${message?"visible":"invisible"}`}>{message}</div>
             <div className=' hidden lg:flex items-center gap-4'>
                 <img className='w-12' src={playlist[track.id].image} alt="" />
                 <div>

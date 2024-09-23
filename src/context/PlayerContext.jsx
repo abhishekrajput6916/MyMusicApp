@@ -3,9 +3,11 @@ import { albumsData } from '../assets/assets';
 
 export const PlayerContext = createContext();
 const PlayerContextProvider = ({ children }) => {
-    const audioRef = useRef();
-    const seekBg = useRef();
-    const seekBar = useRef();
+    const audioRef = useRef(null);                      
+    const seekBg = useRef(null);                        
+    const seekBar = useRef(null);                       
+    const notifyRef=useRef(null);
+    const [message,setMessage]=useState('');
     const [loop, setLoop] = useState(false);
     const [shuffled, setShuffled] = useState(false);
     const [currAlbum,setCurrAlbum]=useState({...albumsData[0]})
@@ -34,10 +36,12 @@ const PlayerContextProvider = ({ children }) => {
         setPlayStatus(false);
     }
     const toggleLoop = () => {
+        loop?notify("Loop Off"):notify("Loop On");
         setLoop(old => !old);
     }
 
     const shuffleSongs = async () => {
+        shuffled?notify("Shuffle Off"):notify("Shuffled");
         if (shuffled) {
             await songsData.map((song,index)=>song.id=index);
             await setPlaylist([...songsData]);
@@ -67,6 +71,7 @@ const PlayerContextProvider = ({ children }) => {
 
     const previous = async (e) => {
         if (track.id > 0) {
+            notify("Prev")
             e.target.style.backgroundColor = "";
             await setTrack(playlist[track?.id - 1]);
             await audioRef.current.play();
@@ -75,6 +80,7 @@ const PlayerContextProvider = ({ children }) => {
     }
     const next = async (e) => {
         if (track.id < playlist.length - 1) {
+            notify("Next")
             await setTrack(playlist[track?.id + 1]);
             await audioRef.current.play();
             setPlayStatus(true);
@@ -86,6 +92,15 @@ const PlayerContextProvider = ({ children }) => {
     const seekSong = async (e) => {
         // console.log(e);
         audioRef.current.currentTime = ((e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration)
+    }
+
+    const notify=(message)=>{
+        setMessage(message);
+        console.log('Message On',notifyRef)
+        setTimeout(() => {
+            console.log('Message Off',message)
+            setMessage('');
+        }, 1000);
     }
 
     useEffect(() => {
@@ -116,6 +131,8 @@ const PlayerContextProvider = ({ children }) => {
         audioRef,
         seekBg,
         seekBar,
+        notifyRef,notify,
+        message,
         playlist,setPlaylist,
         track, setTrack,
         playStatus, setPlayStatus,
