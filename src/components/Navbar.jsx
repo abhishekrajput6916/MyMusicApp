@@ -12,6 +12,11 @@ const Navbar = () => {
   return (
     <>
       <div className='w-full flex justify-between items-center font-semibold'>
+        {
+        isOpen
+        &&
+        <div className="absolute top-0 right-0 w-full h-full bg-black/60" onClick={toggleOwner}></div>        
+        }
         <div className="flex items-center gap-2 ">
           <img src={assets.arrow_left} alt="" onClick={() => navigate(-1)} className="w-8 bg-black p-2 rounded-2xl cursor-pointer" />
           <img src={assets.arrow_right} alt="" onClick={() => navigate(1)} className="w-8 bg-black p-2 rounded-2xl cursor-pointer" />
@@ -22,7 +27,7 @@ const Navbar = () => {
           <div className='relative group w-fit'>
             <p className="bg-purple-500 w-7 h-7 rounded-full flex items-center justify-center cursor-pointer" onClick={toggleOwner}>A</p>
             {
-              isOpen && <div className='absolute flex flex-col gap-1 max-w-sm right-0 -translate-x-1 top-8 md:text-[15px] rounded-lg bg-zinc-600/30 backdrop-blur-md py-2 px-4 text-[12px] cursor-pointer'>
+              isOpen && <div className='absolute flex flex-col gap-1 max-w-sm right-0  top-8 md:text-[15px] rounded-lg bg-zinc-900/30 backdrop-blur-md py-2 px-4 text-[12px] cursor-pointer'>
                 <p>Made by Abhishek with ❤️</p>
                 <Link to={'https://www.linkedin.com/in/fsd-abhiii/'} className='flex gap-2 items-center cursor-pointer'><FaLinkedin className='min-w-4' /><p className='text-nowrap text-sm'>linkedin.com/in/fsd-abhiii/</p></Link>
                 <Link to={'https://github.com/abhishekrajput6916/'} className='flex gap-2 items-center cursor-pointer'><FaGithub className='min-w-4' /><p className='text-nowrap text-sm'>github.com/abhishekrajput6916</p></Link>
