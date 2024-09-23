@@ -8,10 +8,11 @@ import { useEffect } from 'react';
 const DisplayAlbum = () => {
     const { id } = useParams();
     const albumData = albumsData[id];
-    const {currAlbum,playWithId,setPlaylist}=usePlayer();
+    const {currAlbum,playWithId,setPlaylist,changeAlbum}=usePlayer();
 
     useEffect(()=>{
-        // console.log(currAlbum);
+        changeAlbum(id);
+        console.log("currAlbum",currAlbum);
         setPlaylist(currAlbum.allSongs);
     },[])
     
