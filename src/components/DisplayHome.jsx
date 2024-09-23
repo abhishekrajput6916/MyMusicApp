@@ -9,7 +9,6 @@ const DisplayHome = () => {
     const {playlist}=usePlayer();
     return (
         <>
-            <Navbar />
             <div className="mb-4">
                 <h1 className='my-5 font-bold'>Feature Charts</h1>
                 <div className="flex overflow-auto">
