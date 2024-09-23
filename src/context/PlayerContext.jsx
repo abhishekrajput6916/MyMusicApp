@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
-import { songsData } from '../assets/assets';
+import { albumsData } from '../assets/assets';
 
 export const PlayerContext = createContext();
 const PlayerContextProvider = ({ children }) => {
@@ -8,7 +8,9 @@ const PlayerContextProvider = ({ children }) => {
     const seekBar = useRef();
     const [loop, setLoop] = useState(false);
     const [shuffled, setShuffled] = useState(false);
-
+    const [currAlbum,setCurrAlbum]=useState([...albumsData[0]])
+    const [songsData,setSongsData]=useState([...currAlbum.allSongs])
+    
     const [playlist, setPlaylist] = useState([...songsData]);
 
     const [track, setTrack] = useState(playlist[0]);
@@ -78,7 +80,9 @@ const PlayerContextProvider = ({ children }) => {
             setPlayStatus(true);
         }
     }
-
+    const changeAlbum=(id)=>{
+        setCurrAlbum(albumsData[id])
+    }
     const seekSong = async (e) => {
         // console.log(e);
         audioRef.current.currentTime = ((e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration)
@@ -121,7 +125,8 @@ const PlayerContextProvider = ({ children }) => {
         previous, next,
         seekSong,
         loop, toggleLoop,
-        shuffled, shuffleSongs
+        shuffled, shuffleSongs,
+        songsData,setSongsData,
     }
     return (
         <PlayerContext.Provider value={contextValue}>

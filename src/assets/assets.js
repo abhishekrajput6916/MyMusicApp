@@ -54,10 +54,10 @@ import Payal from './HustleSongs/Payal.mp3'
 import RamRam from './HustleSongs/RamRam.mp3'
 import _2Woofer from './HustleSongs/_2Woofer.mp3'
 //Bhakti Songs
-import MereGharRamAayeHain from './BhaktiSongs/MereGharRamAayeHain.m4a';
-import SiyaRam from './BhaktiSongs/SiyaRam.m4a';
-import Damroo from './BhaktiSongs/Damroo.m4a';
-import JaiShriRam from './BhaktiSongs/JaiShriRam.m4a';
+import BhagwanMeriNaiya from './BhaktiSongs/BhagwanMeriNaiya.mp3';
+import HeDukhBhanjan from './BhaktiSongs/HeDukhBhanjan.mp3';
+import Karpuragauram from './BhaktiSongs/Karpuragauram.mp3';
+import RamStuti from './BhaktiSongs/RamStuti.mp3';
 
 
 export const assets = {
@@ -91,33 +91,33 @@ export const assets = {
 export const BhaktiSongs = [
     {
         id:0,
-        name: "Mere Ghar Ram Aaye Hain",    
+        name: "Bhagwan Meri Naiya",    
         image: img1,
-        file:MereGharRamAayeHain,
+        file:BhagwanMeriNaiya,
         desc:"Put a smile on your face.",
         duration:"3:00"
     },
     {
         id:1,
-        name: "Siya Ram",
+        name: "He Dukh Bhanjan",
         image: img2,
-        file:SiyaRam,
+        file:HeDukhBhanjan,
         desc:"Put a smile on your face.",
         duration:"2:20"
     },
     {
         id:2,
-        name: "Dumroo",
+        name: "Ram Stuti",
         image:img3,
-        file:Dumroo,
+        file:RamStuti,
         desc:"Put a smile on your face.",
         duration:"2:32"
     },
     {
         id:3,
-        name: "Jai Shri Ram",
+        name: "Karpuragauram",
         image: img4,
-        file:JaiShriRam,
+        file:Karpuragauram,
         desc:"Put a smile on your face.",
         duration:"2:50"
     },
