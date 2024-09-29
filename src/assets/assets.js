@@ -63,6 +63,7 @@ import ShreeKrishnaGovind from './BhaktiSongs/ShreeKrishnaGovind.mp3';
 import ParvatiBoliShankarSe from './BhaktiSongs/ParvatiBoliShankarSe.mp3';
 import ShivKaDas from './BhaktiSongs/ShivKaDas.mp3';
 import KeejoKesariKeLal from './BhaktiSongs/KeejoKesariKeLal.mp3';
+import KanhaiyaKanhaiya from './BhaktiSongs/KanhaiyaKanhaiya.mp3';
 
 
 
@@ -166,7 +167,15 @@ export const BhaktiSongs = [
         file:KeejoKesariKeLal,
         desc:"Put a smile on your face.",
         duration:"3:10"
-    }
+    },
+    {
+        id:9,
+        name: "Kanhaiya Kanhaiya Pukara Karenge",    
+        image: BhaktiBanner,
+        file:KanhaiyaKanhaiya,
+        desc:"Put a smile on your face.",
+        duration:"3:00"
+    },
 ]
 
 export const HustleSongs = [

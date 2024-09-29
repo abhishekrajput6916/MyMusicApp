@@ -9,7 +9,7 @@ import { FaRegCircleStop, FaShuffle } from 'react-icons/fa6';
 
 const Player = () => {
     // const {  } = useContext(PlayerContext);
-    const { play, seekBar, seekBg, pause, playStatus, time, previous, next, seekSong, track, loop, toggleLoop, shuffleSongs, shuffled, playlist,notifyRef,notify,message } = usePlayer();
+    const { play, seekBar, seekBg, pause, playStatus, time, previous, next, seekSong, track, loop, toggleLoop, shuffleSongs, shuffled, playlist, notifyRef, notify, message } = usePlayer();
     // const getData = async () => {
 
     //     const config = {
@@ -43,9 +43,9 @@ const Player = () => {
 
     return (
         <div className='h-[10%] relative bg-black justify-between flex gap-8 items-center text-white px-4' >
-            <div ref={notifyRef} className={`absolute text-xs w-40 text-center right-1/2 translate-x-1/2 bottom-20 xl:bottom-28 xl:text-base rounded-full py-1 px-3 bg-black/80 text-white ${message?"visible":"invisible"}`}>{message}</div>
+            <div ref={notifyRef} className={`absolute text-xs w-40 text-center right-1/2 translate-x-1/2 bottom-20 xl:bottom-28 xl:text-base rounded-full py-1 px-3 bg-black/80 text-white ${message ? "visible" : "invisible"}`}>{message}</div>
             <div className=' hidden lg:flex items-center gap-4'>
-                <img className='w-12' src={playlist[track.id].image} alt="" />
+                <img className='w-12' src={playlist[track?.id].image} alt="" />
                 <div>
                     <p className='font-medium'>{playlist[track.id].name}</p>
                     <p className='text-sm'>{playlist[track.id].desc}</p>
@@ -54,7 +54,6 @@ const Player = () => {
             <div className="flex flex-col items-center gap-1 mx-auto" >
                 <div className="flex gap-4">
                     {!shuffled ? <TbArrowsRight className='w-4 cursor-pointer' onClick={shuffleSongs} /> : <FaShuffle className='w-4 cursor-pointer' onClick={shuffleSongs} />}
-
                     <TbPlayerTrackPrevFilled onClick={previous} className={`w-4 cursor-pointer ${track?.id <= 0 ? 'text-neutral-500' : ''}`} />
                     {!playStatus ? <FaPlay onClick={play} className='w-4 cursor-pointer' />
                         : <FaPause className='w-4 cursor-pointer' onClick={pause} />}
